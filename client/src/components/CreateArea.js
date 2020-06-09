@@ -43,12 +43,15 @@ function CreateArea(props) {
         });
     }
 
+    // CREATE
     const submitNote = () => {
-        axios.post('http://localhost:5000/notes/add', note);
-        props.onAdd(note);
-        setNote({
-            title: "",
-            content: ""
+        axios.post('http://localhost:5000/notes/add', note)
+        .then(() => {
+            props.onAdd(note);
+            setNote({
+                title: "",
+                content: ""
+            });
         });
     }
 
