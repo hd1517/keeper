@@ -1,14 +1,33 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import AddIcon from '@material-ui/icons/Add';
 import Fab from '@material-ui/core/Fab';
 import Zoom from '@material-ui/core/Zoom';
 
 function CreateArea(props) {
+    const createArea = useRef();
     const [expanded, setExpanded] = useState(false);
 
     const [note, setNote] = useState({
         title: "",
         content: ""
+    });
+
+    const handleClickOutside = event => {
+        // outside click
+        if (!createArea.current.contains(event.target)) {
+            if (note.title !== "" || note.content !== "") {
+                submitNote();
+            }
+            setExpanded(false);
+        }        
+    }
+
+    useEffect(() => {
+        // add on mousedown
+        document.addEventListener('mousedown', handleClickOutside);
+
+        // return function to be called when unmounted
+        return () => document.removeEventListener('mousedown', handleClickOutside);
     });
 
     function handleChange(event) {
@@ -35,7 +54,7 @@ function CreateArea(props) {
     }
 
     return (
-        <div>
+        <div ref={createArea}>
             <form className="create-note">
                 {expanded && (
                     <input
