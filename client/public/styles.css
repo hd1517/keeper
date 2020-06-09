@@ -87,6 +87,11 @@ footer p {
   background-color: #fff;
 }
 
+.addNoteDiv {
+  margin : -15px;
+  padding: 15px;
+}
+
 form.create-note {
   position     : relative;
   width        : 480px;
@@ -116,9 +121,20 @@ form.create-note button {
   color        : #fff;
   border       : none;
   border-radius: 50%;
+<<<<<<< HEAD
   width        : 36px;
   height       : 36px;
   box-shadow   : 0 1px 3px rgba(0, 0, 0, 0.3);
   cursor       : pointer;
   outline      : none;
 }
+=======
+  width: 36px;
+  height: 36px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  outline: none;
+}
+
+
+>>>>>>> clickOutside
