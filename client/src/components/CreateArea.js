@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import CloseIcon from '@material-ui/icons/Close';
 import Fab from '@material-ui/core/Fab';
 import Zoom from '@material-ui/core/Zoom';
+import axios from 'axios';
 
 function CreateArea(props) {
     const createArea = useRef();
@@ -43,6 +44,7 @@ function CreateArea(props) {
     }
 
     const submitNote = () => {
+        axios.post('http://localhost:5000/notes/add', note);
         props.onAdd(note);
         setNote({
             title: "",
