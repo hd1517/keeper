@@ -22,6 +22,8 @@ function CreateArea(props) {
         }        
     }
 
+    const handleClickInside = () => setExpanded(true);
+
     useEffect(() => {
         // add on mousedown
         document.addEventListener('mousedown', handleClickOutside);
@@ -49,10 +51,6 @@ function CreateArea(props) {
         });
     }
 
-    function expand() {
-        setExpanded(true);
-    }
-
     return (
         <div ref={createArea}>
             <form className="create-note">
@@ -67,7 +65,7 @@ function CreateArea(props) {
 
                 <textarea
                     name="content"
-                    onClick={expand}
+                    onClick={handleClickInside}
                     onChange={handleChange}
                     value={note.content}
                     placeholder="Take a note..."
