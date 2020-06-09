@@ -113,6 +113,10 @@ form.create-note textarea {
   resize     : none;
 }
 
+form.create-note input {
+  font-weight: bold;
+}
+
 form.create-note button {
   position     : absolute;
   right        : 18px;
