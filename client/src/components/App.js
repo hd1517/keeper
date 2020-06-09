@@ -24,12 +24,14 @@ function App() {
       });
   }
 
+  // DELETE
   const deleteNote = id => {
-    setNotes(prevNotes => {
-      return prevNotes.filter((noteItem, index) => {
-        return index !== id;
+    axios.delete(`http://localhost:5000/notes/${id}`)
+    .then(() => {
+      setNotes(prevNotes => {
+        return prevNotes.filter(note => note._id !== id)
       });
-    });
+    });    
   }
 
   return (
@@ -42,7 +44,8 @@ function App() {
         </Grid>
 
         <Grid container spacing={0}>
-          {notes.map(noteItem => (
+          {notes.map(noteItem => {
+            return (
             <Grid container item xs={12} sm={6} md={3} spacing={0} key={"gridKey" + noteItem._id}>
               <Note
                 key={"noteKey" + noteItem._id}
@@ -52,7 +55,8 @@ function App() {
                 onDelete={deleteNote}
               />
             </Grid>
-          ))}
+            );
+          })}
         </Grid>
       </div>
 
