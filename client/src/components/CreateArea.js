@@ -35,7 +35,6 @@ function CreateArea(props) {
     }
 
     return (
-        <div>
             <form className="create-note">
                 {expanded && (
                     <input
@@ -61,7 +60,6 @@ function CreateArea(props) {
                     </Fab>
                 </Zoom>
             </form>
-        </div>
     );
 }
 
