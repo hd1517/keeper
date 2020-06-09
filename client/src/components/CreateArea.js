@@ -32,7 +32,7 @@ function CreateArea(props) {
         return () => document.removeEventListener('mousedown', handleClickOutside);
     });
 
-    function handleChange(event) {
+    const handleChange = event => {
         const { name, value } = event.target;
         setNote(prevNote => {
             return {
@@ -42,7 +42,7 @@ function CreateArea(props) {
         });
     }
 
-    function submitNote(event) {
+    const submitNote = () => {
         props.onAdd(note);
         setNote({
             title: "",
