@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import AddIcon from '@material-ui/icons/Add';
+import CloseIcon from '@material-ui/icons/Close';
 import Fab from '@material-ui/core/Fab';
 import Zoom from '@material-ui/core/Zoom';
 
@@ -19,7 +19,7 @@ function CreateArea(props) {
                 submitNote();
             }
             setExpanded(false);
-        }        
+        }
     }
 
     const handleClickInside = () => setExpanded(true);
@@ -52,8 +52,8 @@ function CreateArea(props) {
     }
 
     return (
-        <div ref={createArea}>
-            <form className="create-note">
+        <form className="create-note">
+            <div className="addNoteDiv" onClick={handleClickInside} ref={createArea}>
                 {expanded && (
                     <input
                         name="title"
@@ -65,19 +65,19 @@ function CreateArea(props) {
 
                 <textarea
                     name="content"
-                    onClick={handleClickInside}
                     onChange={handleChange}
                     value={note.content}
                     placeholder="Take a note..."
                     rows={expanded ? 3 : 1}
                 />
-                <Zoom in={expanded}>
-                    <Fab onClick={submitNote}>
-                        <AddIcon />
-                    </Fab>
-                </Zoom>
-            </form>
-        </div>
+            </div>
+            <Zoom in={expanded}>
+                <Fab >
+                    <CloseIcon onClick={handleClickOutside} />
+                </Fab>
+            </Zoom>
+        </form>
+
     );
 }
 

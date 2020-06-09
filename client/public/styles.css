@@ -70,6 +70,11 @@ footer p {
   outline: none;
 }
 
+.addNoteDiv {
+  margin : -15px;
+  padding: 15px;
+}
+
 form.create-note {
   position: relative;
   width: 480px;
@@ -105,3 +110,5 @@ form.create-note button {
   cursor: pointer;
   outline: none;
 }
+
+
