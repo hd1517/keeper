@@ -23,7 +23,14 @@ function EditModal(props) {
   }
 
   let date = new Date(props.time);
-  let dateFormat = date.toLocaleDateString("en-GB");
+  let dateFormat =
+    date.toLocaleDateString("en-GB") +
+    " " +
+    date.toLocaleTimeString([], {
+      hour12: false,
+      hour: "2-digit",
+      minute: "2-digit",
+    });
 
   return (
     <Modal
