@@ -2,24 +2,28 @@ import React, { useState } from "react";
 import DeleteIcon from "@material-ui/icons/Delete";
 
 function Note(props) {
-  const [hover, setHover] = useState(false);
+  const [display, setDisplay] = useState("none");
 
-  const handleOnDelete = () => props.onDelete(props.id);
+  const handleOnDelete = () => {
+    props.onDelete(props.id);
+  };
   const handleOnEdit = () => props.onEdit();
 
   return (
     <div
       className="note"
-      onMouseEnter={() => setHover(true)}
-      onMouseLeave={() => setHover(false)}
+      onMouseEnter={() => setDisplay("block")}
+      onMouseLeave={() => setDisplay("none")}
     >
       <h1>{props.title}</h1>
       <p>{props.content}</p>
-      {hover && (
-        <span className="noteEdit" onClick={handleOnEdit}>
-          EDIT
-        </span>
-      )}
+      <span
+        style={{ display: display }}
+        className="noteEdit"
+        onClick={handleOnEdit}
+      >
+        EDIT
+      </span>
       <button onClick={handleOnDelete}>
         <DeleteIcon />
       </button>
