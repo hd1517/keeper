@@ -29,7 +29,7 @@ function EditModal(props) {
       aria-labelledby={"Note title:" + props.title}
       aria-describedby={"Note content:" + props.content}
     >
-      <form className="create-note editModal">
+      <form className="editModal create-note">
         <Input onChange={handleOnChange} value={note.title} />
         <Textarea onChange={handleOnChange} value={note.content} rows={5} />
         <Fab>

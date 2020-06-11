@@ -68,7 +68,7 @@ footer p {
 
 .note p {
   font-size: 1.1em;
-  margin-bottom: 30px;
+  margin-bottom: 35px;
   white-space: pre-wrap;
   word-wrap: break-word;
 }
@@ -152,10 +152,4 @@ form.create-note button {
 
 .editModal:focus {
   outline: none;
-}
-
-@media screen and (max-width: 576px) {
-  .noteEdit {
-    display: block !important;
-  }
 }
