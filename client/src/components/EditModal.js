@@ -22,6 +22,9 @@ function EditModal(props) {
     });
   }
 
+  let date = new Date(props.time);
+  let dateFormat = date.toLocaleDateString("en-GB");
+
   return (
     <Modal
       open={props.openState}
@@ -32,7 +35,7 @@ function EditModal(props) {
       <form className="editModal create-note">
         <Input onChange={handleOnChange} value={note.title} />
         <Textarea onChange={handleOnChange} value={note.content} rows={5} />
-        <div>Edited: {props.time}</div>
+        <div>Edited: {dateFormat}</div>
         <Fab>
           <CloseIcon onClick={() => props.handleOnClose(props.id, note)} />
         </Fab>
