@@ -25,7 +25,7 @@ function EditModal(props) {
   return (
     <Modal
       open={props.openState}
-      onClose={() => props.handleOnClose(props.id)}
+      onClose={() => props.handleOnClose(props.id, note)}
       aria-labelledby={"Note title:" + props.title}
       aria-describedby={"Note content:" + props.content}
     >
@@ -33,7 +33,7 @@ function EditModal(props) {
         <Input onChange={handleOnChange} value={note.title} />
         <Textarea onChange={handleOnChange} value={note.content} rows={5} />
         <Fab>
-          <CloseIcon onClick={() => props.handleOnClose(props.id)} />
+          <CloseIcon onClick={() => props.handleOnClose(props.id, note)} />
         </Fab>
       </form>
     </Modal>

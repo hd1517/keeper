@@ -15,7 +15,15 @@ function App() {
     setShowModal(id);
   };
 
-  const hideModal = () => {
+  // Update
+  const hideModal = (id, data) => {
+    if (data.title === "" && data.content === "") {
+      deleteNote(id);
+    } else {
+      axios.patch(`http://localhost:5000/notes/update/${id}`, data).then(() => {
+        getList();
+      });
+    }
     setShowModal(0);
   };
 
