@@ -153,3 +153,9 @@ form.create-note button {
 .editModal:focus {
   outline: none;
 }
+
+@media only screen and (max-width: 500px) {
+  .editModal {
+    width: 90% !important;
+  }
+}
