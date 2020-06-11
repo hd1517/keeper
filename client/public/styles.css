@@ -153,3 +153,8 @@ form.create-note button {
 .editModal:focus {
   outline: none;
 }
+
+.timeEdit {
+  font-size: 0.7rem;
+  color: grey;
+}

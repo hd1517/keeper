@@ -42,7 +42,7 @@ function EditModal(props) {
       <form className="editModal create-note">
         <Input onChange={handleOnChange} value={note.title} />
         <Textarea onChange={handleOnChange} value={note.content} rows={5} />
-        <div>Edited: {dateFormat}</div>
+        <div className="timeEdit">Edited: {dateFormat}</div>
         <Fab>
           <CloseIcon onClick={() => props.handleOnClose(props.id, note)} />
         </Fab>
