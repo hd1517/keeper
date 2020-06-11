@@ -154,6 +154,11 @@ form.create-note button {
   outline: none;
 }
 
+.timeEdit {
+  font-size: 0.7rem;
+  color: grey;
+}
+
 @media only screen and (max-width: 500px) {
   .editModal {
     width: 90% !important;
