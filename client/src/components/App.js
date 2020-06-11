@@ -88,6 +88,7 @@ function App() {
                   handleOnClose={hideModal}
                   title={noteItem.title}
                   content={noteItem.content}
+                  time={noteItem.updatedAt}
                 />
               </Grid>
             );
