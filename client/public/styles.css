@@ -9,8 +9,8 @@ html {
 }
 
 body {
-  background: #eee;
-  background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
+  background: #bdadac;
+  background-image: url("green-gobbler.png");
   padding: 0 16px;
 }
 
@@ -53,7 +53,7 @@ footer p {
 .note {
   background: #fff;
   border-radius: 7px;
-  box-shadow: 0 2px 5px #ccc;
+  box-shadow: 0 2px 5px #adadad;
   padding: 10px;
   width: 100%;
   margin: 16px;
@@ -76,7 +76,7 @@ footer p {
 .note button {
   position: absolute;
   right: 2px;
-  bottom: 2px;
+  bottom: 1px;
   float: right;
   color: #f5ba13;
   border: none;
@@ -84,13 +84,13 @@ footer p {
   height: 36px;
   cursor: pointer;
   outline: none;
-  background-color: #fff;
+  background-color: transparent;
 }
 
 .noteEdit {
   position: absolute;
   right: 40px;
-  bottom: 12px;
+  bottom: 11px;
   margin-bottom: 0px;
   font-weight: bold;
   font-size: 0.9em;
