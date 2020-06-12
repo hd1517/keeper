@@ -20,9 +20,14 @@ function App() {
     if (data.title === "" && data.content === "") {
       deleteNote(id);
     } else {
-      axios.patch(`http://localhost:5000/notes/update/${id}`, data).then(() => {
-        getList();
-      });
+      axios
+        .patch(
+          `https://stormy-refuge-47765.herokuapp.com/notes/update/${id}`,
+          data
+        )
+        .then(() => {
+          getList();
+        });
     }
     setShowModal(0);
   };
@@ -34,7 +39,7 @@ function App() {
   // READ
   const getList = () => {
     axios
-      .get("http://localhost:5000/notes")
+      .get("https://stormy-refuge-47765.herokuapp.com/notes")
       .then((res) => {
         setNotes(res.data);
       })
@@ -45,11 +50,13 @@ function App() {
 
   // DELETE
   const deleteNote = (id) => {
-    axios.delete(`http://localhost:5000/notes/${id}`).then(() => {
-      setNotes((prevNotes) => {
-        return prevNotes.filter((note) => note._id !== id);
+    axios
+      .delete(`https://stormy-refuge-47765.herokuapp.com/notes/${id}`)
+      .then(() => {
+        setNotes((prevNotes) => {
+          return prevNotes.filter((note) => note._id !== id);
+        });
       });
-    });
   };
 
   return (

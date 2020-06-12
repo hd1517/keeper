@@ -47,13 +47,15 @@ function CreateArea(props) {
 
   // CREATE
   const submitNote = () => {
-    axios.post("http://localhost:5000/notes/add", note).then(() => {
-      props.onAdd();
-      setNote({
-        title: "",
-        content: "",
+    axios
+      .post("https://stormy-refuge-47765.herokuapp.com/notes/add", note)
+      .then(() => {
+        props.onAdd();
+        setNote({
+          title: "",
+          content: "",
+        });
       });
-    });
   };
 
   return (
