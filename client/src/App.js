@@ -2,11 +2,11 @@ import React, { useState, useEffect } from "react";
 import Grid from "@material-ui/core/Grid";
 import axios from "axios";
 
-import Header from "./layout/Header";
-import Footer from "./layout/Footer";
-import Note from "./Note";
-import CreateArea from "./CreateArea";
-import EditModal from "./EditModal";
+import Header from "./components/layout/Header";
+import Footer from "./components/layout/Footer";
+import Note from "./components/Note";
+import CreateArea from "./components/CreateArea";
+import EditModal from "./components/EditModal";
 
 function App() {
   const [notes, setNotes] = useState([]);
@@ -14,6 +14,23 @@ function App() {
 
   const getModal = (id) => {
     setShowModal(id);
+  };
+
+  // Get list from database on page load
+  useEffect(() => {
+    getList();
+  }, []);
+
+  // READ
+  const getList = () => {
+    axios
+      .get("https://stormy-refuge-47765.herokuapp.com/notes")
+      .then((res) => {
+        setNotes(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   // UPDATE
@@ -31,22 +48,6 @@ function App() {
         });
     }
     setShowModal(0);
-  };
-
-  useEffect(() => {
-    getList();
-  }, []);
-
-  // READ
-  const getList = () => {
-    axios
-      .get("https://stormy-refuge-47765.herokuapp.com/notes")
-      .then((res) => {
-        setNotes(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
   };
 
   // DELETE
