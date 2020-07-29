@@ -11,7 +11,7 @@ app.use(cors());
 app.use(express.json());
 
 // Database connect
-const uri = process.env.ATLAS_URI;
+const uri = "mongodb://localhost:27017/keeperDB";
 mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 const connection = mongoose.connection;
 connection.once("open", () => {

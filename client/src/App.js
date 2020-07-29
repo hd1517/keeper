@@ -11,7 +11,7 @@ import EditModal from "./components/EditModal";
 const App = () => {
   const [notes, setNotes] = useState([]);
   const [showModal, setShowModal] = useState(0);
-  const URL = "https://stormy-refuge-47765.herokuapp.com";
+  const URL = "http://localhost:5000";
 
   const getModal = (id) => {
     setShowModal(id);
