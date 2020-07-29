@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Grid from "@material-ui/core/Grid";
 import axios from "axios";
 
-import Header from "./layout/HeaderHeader";
+import Header from "./layout/Header";
 import Footer from "./layout/Footer";
 import Note from "./Note";
 import CreateArea from "./CreateArea";
