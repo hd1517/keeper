@@ -8,7 +8,7 @@ import Note from "./components/Note";
 import CreateArea from "./components/CreateArea";
 import EditModal from "./components/EditModal";
 
-function App() {
+const App = () => {
   const [notes, setNotes] = useState([]);
   const [showModal, setShowModal] = useState(0);
 
@@ -108,6 +108,6 @@ function App() {
       <Footer />
     </div>
   );
-}
+};
 
 export default App;

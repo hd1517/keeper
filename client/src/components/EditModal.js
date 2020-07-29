@@ -5,22 +5,16 @@ import Textarea from "./Textarea";
 import Fab from "@material-ui/core/Fab";
 import CloseIcon from "@material-ui/icons/Close";
 
-function EditModal(props) {
+const EditModal = (props) => {
   const [note, setNote] = useState({
     title: props.title,
     content: props.content,
   });
 
-  function handleOnChange(event) {
+  const handleOnChange = (event) => {
     const { name, value } = event.target;
-
-    setNote((prevNote) => {
-      return {
-        ...prevNote,
-        [name]: value,
-      };
-    });
-  }
+    setNote({ ...note, [name]: value });
+  };
 
   let date = new Date(props.time);
   let dateFormat =
@@ -49,6 +43,6 @@ function EditModal(props) {
       </form>
     </Modal>
   );
-}
+};
 
 export default EditModal;

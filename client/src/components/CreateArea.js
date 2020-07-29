@@ -6,10 +6,9 @@ import axios from "axios";
 import Input from "./Input";
 import Textarea from "./Textarea";
 
-function CreateArea(props) {
+const CreateArea = (props) => {
   const createArea = useRef();
   const [expanded, setExpanded] = useState(false);
-
   const [note, setNote] = useState({
     title: "",
     content: "",
@@ -37,12 +36,7 @@ function CreateArea(props) {
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-    setNote((prevNote) => {
-      return {
-        ...prevNote,
-        [name]: value,
-      };
-    });
+    setNote({ ...note, [name]: value });
   };
 
   // CREATE
@@ -76,6 +70,6 @@ function CreateArea(props) {
       </Zoom>
     </form>
   );
-}
+};
 
 export default CreateArea;

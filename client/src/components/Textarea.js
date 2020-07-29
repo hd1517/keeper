@@ -1,6 +1,6 @@
 import React from "react";
 
-function Textarea(props) {
+const Textarea = (props) => {
   const handleOnChange = (event) => {
     props.onChange(event);
   };
@@ -14,6 +14,6 @@ function Textarea(props) {
       rows={props.rows}
     />
   );
-}
+};
 
 export default Textarea;

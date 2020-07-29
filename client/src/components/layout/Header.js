@@ -1,7 +1,7 @@
 import React from "react";
 import HighlightIcon from "@material-ui/icons/Highlight";
 
-function Header() {
+const Header = () => {
   return (
     <header>
       <h1>
@@ -9,6 +9,6 @@ function Header() {
       </h1>
     </header>
   );
-}
+};
 
 export default Header;

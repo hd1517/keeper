@@ -1,6 +1,6 @@
 import React from "react";
 
-function Input(props) {
+const Input = (props) => {
   const handleOnChange = (event) => {
     props.onChange(event);
   };
@@ -14,6 +14,6 @@ function Input(props) {
       autoComplete="off"
     />
   );
-}
+};
 
 export default Input;
