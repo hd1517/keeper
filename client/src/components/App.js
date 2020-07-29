@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
-import Header from "./Header";
-import Footer from "./Footer";
-import Note from "./Note";
-import CreateArea from "./CreateArea";
 import Grid from "@material-ui/core/Grid";
 import axios from "axios";
+
+import Header from "./layout/HeaderHeader";
+import Footer from "./layout/Footer";
+import Note from "./Note";
+import CreateArea from "./CreateArea";
 import EditModal from "./EditModal";
 
 function App() {
@@ -15,7 +16,7 @@ function App() {
     setShowModal(id);
   };
 
-  // Update
+  // UPDATE
   const hideModal = (id, data) => {
     if (data.title === "" && data.content === "") {
       deleteNote(id);
