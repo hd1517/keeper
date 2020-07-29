@@ -3,8 +3,8 @@ import CloseIcon from "@material-ui/icons/Close";
 import Fab from "@material-ui/core/Fab";
 import Zoom from "@material-ui/core/Zoom";
 import axios from "axios";
-import Input from "./Input";
-import Textarea from "./Textarea";
+import Input from "./formElements/Input";
+import Textarea from "./formElements/Textarea";
 
 const CreateArea = (props) => {
   const createArea = useRef();
@@ -39,6 +39,12 @@ const CreateArea = (props) => {
     setNote({ ...note, [name]: value });
   };
 
+  // Prevent default when enter key is pressed on text input, then focus on textarea
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    document.getElementById("createTextarea").focus();
+  };
+
   // CREATE
   const submitNote = () => {
     axios
@@ -53,14 +59,14 @@ const CreateArea = (props) => {
   };
 
   return (
-    <form className="create-note">
+    <form className="create-note" onSubmit={handleSubmit}>
       <div className="addNoteDiv" onClick={handleClickInside} ref={createArea}>
         {expanded && <Input onChange={handleChange} value={note.title} />}
-
         <Textarea
           onChange={handleChange}
           value={note.content}
           rows={expanded ? 3 : 1}
+          id="createTextarea"
         />
       </div>
       <Zoom in={expanded}>

@@ -12,6 +12,7 @@ const Textarea = (props) => {
       value={props.value}
       placeholder="Take a note..."
       rows={props.rows}
+      id={props.id}
     />
   );
 };
