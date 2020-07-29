@@ -7,6 +7,7 @@ import Input from "./formElements/Input";
 import Textarea from "./formElements/Textarea";
 
 const CreateArea = (props) => {
+  const { URL, onAdd } = props;
   const createArea = useRef();
   const [expanded, setExpanded] = useState(false);
   const [note, setNote] = useState({
@@ -47,15 +48,13 @@ const CreateArea = (props) => {
 
   // CREATE
   const submitNote = () => {
-    axios
-      .post("https://stormy-refuge-47765.herokuapp.com/notes/add", note)
-      .then(() => {
-        props.onAdd();
-        setNote({
-          title: "",
-          content: "",
-        });
+    axios.post(URL + "/notes/add", note).then(() => {
+      onAdd();
+      setNote({
+        title: "",
+        content: "",
       });
+    });
   };
 
   return (

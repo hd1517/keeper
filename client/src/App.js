@@ -11,6 +11,7 @@ import EditModal from "./components/EditModal";
 const App = () => {
   const [notes, setNotes] = useState([]);
   const [showModal, setShowModal] = useState(0);
+  const URL = "https://stormy-refuge-47765.herokuapp.com";
 
   const getModal = (id) => {
     setShowModal(id);
@@ -24,7 +25,7 @@ const App = () => {
   // READ
   const getList = () => {
     axios
-      .get("https://stormy-refuge-47765.herokuapp.com/notes")
+      .get(URL + "/notes")
       .then((res) => {
         setNotes(res.data);
       })
@@ -38,27 +39,20 @@ const App = () => {
     if (data.title === "" && data.content === "") {
       deleteNote(id);
     } else {
-      axios
-        .patch(
-          `https://stormy-refuge-47765.herokuapp.com/notes/update/${id}`,
-          data
-        )
-        .then(() => {
-          getList();
-        });
+      axios.patch(URL + `/notes/update/${id}`, data).then(() => {
+        getList();
+      });
     }
     setShowModal(0);
   };
 
   // DELETE
   const deleteNote = (id) => {
-    axios
-      .delete(`https://stormy-refuge-47765.herokuapp.com/notes/${id}`)
-      .then(() => {
-        setNotes((prevNotes) => {
-          return prevNotes.filter((note) => note._id !== id);
-        });
+    axios.delete(URL + `/notes/${id}`).then(() => {
+      setNotes((prevNotes) => {
+        return prevNotes.filter((note) => note._id !== id);
       });
+    });
   };
 
   return (
@@ -67,7 +61,7 @@ const App = () => {
 
       <div className="listArea">
         <Grid container>
-          <CreateArea onAdd={getList} />
+          <CreateArea onAdd={getList} URL={URL} />
         </Grid>
 
         <Grid container spacing={0}>
