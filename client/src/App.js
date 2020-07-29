@@ -72,6 +72,7 @@ const App = () => {
 
         <Grid container spacing={0}>
           {notes.map((noteItem) => {
+            const { _id, title, content, updatedAt } = noteItem;
             return (
               <Grid
                 container
@@ -80,24 +81,24 @@ const App = () => {
                 sm={6}
                 md={3}
                 spacing={0}
-                key={"gridKey" + noteItem._id}
+                key={"gridKey" + _id}
               >
                 <Note
-                  key={"noteKey" + noteItem._id}
-                  id={noteItem._id}
-                  title={noteItem.title}
-                  content={noteItem.content}
+                  key={"noteKey" + _id}
+                  id={_id}
+                  title={title}
+                  content={content}
                   onDelete={deleteNote}
-                  onEdit={() => getModal(noteItem._id)}
+                  onEdit={() => getModal(_id)}
                 />
                 <EditModal
-                  key={"modalKey" + noteItem._id}
-                  id={noteItem._id}
-                  openState={showModal === noteItem._id}
+                  key={"modalKey" + _id}
+                  id={_id}
+                  openState={showModal === _id}
                   handleOnClose={hideModal}
-                  title={noteItem.title}
-                  content={noteItem.content}
-                  time={noteItem.updatedAt}
+                  title={title}
+                  content={content}
+                  time={updatedAt}
                 />
               </Grid>
             );

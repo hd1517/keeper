@@ -2,16 +2,18 @@ import React from "react";
 import DeleteIcon from "@material-ui/icons/Delete";
 
 const Note = (props) => {
+  const { onDelete, id, onEdit, title, content } = props;
+
   const handleOnDelete = () => {
-    props.onDelete(props.id);
+    onDelete(id);
   };
 
-  const handleOnEdit = () => props.onEdit();
+  const handleOnEdit = () => onEdit();
 
   return (
     <div className="note">
-      <h1>{props.title}</h1>
-      <p>{props.content}</p>
+      <h1>{title}</h1>
+      <p>{content}</p>
       <span className="noteEdit" onClick={handleOnEdit}>
         EDIT
       </span>

@@ -1,18 +1,19 @@
 import React from "react";
 
 const Textarea = (props) => {
+  const { value, rows, id, onChange } = props;
   const handleOnChange = (event) => {
-    props.onChange(event);
+    onChange(event);
   };
 
   return (
     <textarea
       name="content"
       onChange={handleOnChange}
-      value={props.value}
+      value={value}
       placeholder="Take a note..."
-      rows={props.rows}
-      id={props.id}
+      rows={rows}
+      id={id}
     />
   );
 };

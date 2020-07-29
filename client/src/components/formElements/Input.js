@@ -1,15 +1,16 @@
 import React from "react";
 
 const Input = (props) => {
+  const { value, onChange } = props;
   const handleOnChange = (event) => {
-    props.onChange(event);
+    onChange(event);
   };
 
   return (
     <input
       name="title"
       onChange={handleOnChange}
-      value={props.value}
+      value={value}
       placeholder="Title"
       autoComplete="off"
     />
